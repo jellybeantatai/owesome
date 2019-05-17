@@ -2,7 +2,7 @@ import React from "react";
 import Clients from "../Clients/Clients";
 import Sidebar from "../Layout/Sidebar";
 
-export default function Dashboard() {
+export default () => {
   return (
     <div>
       <div className="row">
@@ -15,4 +15,4 @@ export default function Dashboard() {
       </div>
     </div>
   );
-}
+};

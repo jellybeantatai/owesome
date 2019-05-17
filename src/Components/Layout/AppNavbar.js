@@ -1,15 +1,26 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import owesomeLogo from "./owesomeLogo.jpg";
 
 class AppNavbar extends Component {
   render() {
     return (
-      <nav className="navbar navbar-expand-md navbar-dark bg-warning mb-4">
+      <nav className="navbar navbar-expand-md navbar-dark bg-info mb-4">
         <div className="container">
           <Link to="/" className="navbar-brand">
-            <b style={{ color: "white", fontFamily: "Comic Sans MS" }}>
+            {/* <b style={{ color: "white", fontFamily: "Comic Sans MS" }}>
               OWE-SOME
-            </b>
+            </b> */}
+            <img
+              src={owesomeLogo}
+              alt="Logo"
+              style={{
+                height: "40px",
+                width: "200px",
+                margin: "auto",
+                display: "block"
+              }}
+            />
           </Link>
           <button
             className="navbar-toggler"
