@@ -158,7 +158,12 @@ export default compose(
   firestoreConnect(props => [
     { collection: "clients", storeAs: "client", doc: props.match.params.id }
   ]),
-  connect(({ firestore: { ordered } }, props) => ({
-    client: ordered.client && ordered.client[0]
+
+  // connect(({ firestore: { ordered } }, props) => ({
+  //   client: ordered.client && ordered.client[0]          ----> Shortcut
+  // }))
+
+  connect((state, props) => ({
+    client: state.firestore.ordered.client && state.firestore.ordered.client[0]
   }))
 )(ClientDetails);
