@@ -16,13 +16,12 @@ class Login extends Component {
     e.preventDefault();
 
     const { firebase, notifyUser } = this.props;
+    const { email, password } = this.state;
 
+    // Register with firebase
     firebase
-      .login({
-        email: this.state.email,
-        password: this.state.password
-      })
-      .catch(err => notifyUser("Invalid login Credentials", "error"));
+      .createUser({ email, password })
+      .catch(err => notifyUser("User already exists", "error"));
   };
 
   onChange = e => {
@@ -39,7 +38,7 @@ class Login extends Component {
             <div className="card-body">
               <h1 className="text-center pb-4 pt-3">
                 <span className="text-info">
-                  <i className="fas fa-lock" /> Login
+                  <i className="fas fa-lock" /> Register
                 </span>
               </h1>
               {message ? (
@@ -70,7 +69,7 @@ class Login extends Component {
                 </div>
                 <input
                   type="submit"
-                  value="Login"
+                  value="Register"
                   className="btn btn-info btn-block"
                 />
               </form>
